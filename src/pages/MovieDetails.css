@@ -101,4 +101,7 @@
   .info-chips, .genres, .cast-list {
     justify-content: center;
   }
+  .details-info h1 {
+    font-size: 2em; /* Reduz o tamanho do título em telas menores */
+  }
 }

@@ -49,3 +49,24 @@ body {
   gap: 20px;
   margin-top: 20px;
 }
+
+/* --- Polimento da Responsividade --- */
+
+@media (max-width: 480px) {
+  /* Ajusta o formulário de busca para telas de celular */
+  .search-form {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+  }
+
+  .search-form input {
+    width: 100%; 
+    margin-left: 0; 
+  }
+
+  .search-form button {
+    width: 100%;
+    margin-left: 0; 
+  }
+}
