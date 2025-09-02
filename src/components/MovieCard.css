@@ -8,32 +8,12 @@
   transition: transform 0.3s ease;
   text-decoration: none;
   color: inherit;
-  
-  /* Adicionado para ser o contexto do posicionamento da nota */
-  position: relative; 
+  position: relative; /* Essencial para o posicionamento da nota */
 }
 
 .movie-card:hover {
   transform: scale(1.05);
 }
-
-/* ---  NOTA --- */
-.rating-badge {
-  position: absolute; 
-  top: 10px;          
-  left: 10px;         
-  z-index: 2;         
-  
-  background-color: rgba(255, 193, 7, 0.9); 
-  color: #121212; 
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 0.9em;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-
-
 
 .movie-card img {
   width: 100%;
@@ -59,4 +39,64 @@
 .movie-info p {
   color: #aaa;
   margin: 0;
+}
+
+
+/* =========SISTEMA DE BADGE DE RATING======== */
+.rating {
+  --bg: linear-gradient(180deg, #FFD84D 0%, #FFC233 100%);
+  --txt: #3b2f00;
+  --border: #00000020;
+  --shadow: 0 6px 16px rgba(0,0,0,.25);
+  --padY: 6px;
+  --padX: 10px;
+  --radius: 9px;
+  --gap: 6px;
+  --fs: 13px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap);
+  padding: var(--padY) var(--padX);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--txt);
+  font-weight: 800;
+  font-size: var(--fs);
+  line-height: 1;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .35);
+}
+
+/* Estrela embutida via SVG */
+.rating::before {
+  content: "";
+  width: 16px; height: 16px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.2));
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23FFB800' d='M12 2.5l2.9 5.88 6.5.95-4.7 4.58 1.1 6.44L12 17.8 6.2 20.35l1.1-6.44-4.7-4.58 6.5-.95L12 2.5z'/><path fill='white' fill-opacity='.45' d='M12 2.5l2.9 5.88 6.5.95-4.7 4.58 1.1 6.44L12 17.8V2.5z'/></svg>");
+}
+
+/* Variações de cor por nota */
+.rating--good { --bg: linear-gradient(180deg,#8EFA9A 0%, #57E86B 100%); --txt: #053b12; }
+.rating--ok { --bg: linear-gradient(180deg,#FFE27A 0%, #FFC94D 100%); --txt: #3b2f00; }
+.rating--bad { --bg: linear-gradient(180deg,#FF9C88 0%, #FF6A6A 100%); --txt: #3c0a09; }
+.rating--zero {
+  --bg: linear-gradient(180deg, #A8B2C7 0%, #8E9BAF 100%);
+  --txt: #2E3845;
+}
+
+/* Classe para posicionar no canto do card */
+.rating--pin {
+  position: absolute; top: 10px; left: 10px; z-index: 2;
+  border-radius: 10px;
+}
+
+/* Ajustes para o tema escuro */
+:root[data-theme="dark"] .rating {
+  --border: #ffffff22;
+  box-shadow: 0 4px 12px rgba(0,0,0,.35);
 }

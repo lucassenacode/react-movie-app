@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
+import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import './components/Navbar.css';
 import Favorites from './pages/Favorites';
 import Home from './pages/Home';
 import MovieDetails from './pages/MovieDetails';
 import api from './services/api';
 
+import './App.css';
+import './components/Footer.css';
+import './components/Navbar.css';
+
 function App() {
-  // (lógica de estado e a função performSearch)
+  
   const [searchTerm, setSearchTerm] = useState('');
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -66,7 +69,8 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </main>
-    </div> 
+      <Footer /> 
+    </div>
   );
 }
 

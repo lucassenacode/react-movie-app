@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Spinner from '../components/Spinner';
+import '../components/Spinner.css';
 import useFavorites from '../hooks/useFavorites';
 import api from '../services/api';
 import './MovieDetails.css';
@@ -35,7 +37,7 @@ const MovieDetails = () => {
     fetchMovieDetails();
   }, [id]);
 
-  if (isLoading) return <p>Carregando detalhes...</p>;
+  if (isLoading) return <Spinner />;
   if (error) return <p className="error-message">{error}</p>;
   if (!movie) return <p>Filme não encontrado.</p>;
 

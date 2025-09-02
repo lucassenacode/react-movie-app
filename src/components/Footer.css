@@ -1,0 +1,112 @@
+:root{
+  --footer-bg: color-mix(in oklab, #000 75%, transparent);
+  --footer-border: #ffffff1a;
+  --footer-text: #b9bfcc;
+  --footer-strong: #e6e9f2;
+  --primary: #6ee7f9;
+  --accent: #8b5cf6;
+}
+:root[data-theme="light"]{
+  --footer-bg: color-mix(in oklab, #000 5%, #fff);
+  --footer-border: #00000012;
+  --footer-text: #4c5365;
+  --footer-strong: #151823;
+}
+
+/* Wrapper */
+.mf-footer{
+  margin-top: 48px;
+  position: relative;
+  isolation: isolate;
+}
+
+/* linha de brilho suave no topo */
+.mf-footer::before{
+  content:"";
+  position:absolute; inset: -1px 0 auto 0; height:1px;
+  background: linear-gradient(90deg,var(--primary),var(--accent));
+  opacity:.35;
+}
+
+.mf-footer__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  border: 1px solid var(--footer-border);
+  border-radius: 14px;
+  background: var(--footer-bg);
+  backdrop-filter: blur(8px) saturate(130%);
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Esquerda */
+.mf-footer__brand{
+  display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  color: var(--footer-text); font-size: 14px;
+}
+.mf-footer__brand strong{ color: var(--footer-strong); }
+
+.mf-powered{
+  display:inline-flex; align-items:center; gap:8px;
+  padding: 6px 10px; border-radius: 10px;
+  border: 1px solid var(--footer-border);
+  background: color-mix(in oklab, var(--footer-bg) 70%, transparent);
+  color: var(--footer-strong);
+  font-weight:700; font-size:12px;
+}
+.mf-powered svg{ font-size: 16px; }
+
+
+.mf-divider{
+  width: 1px; height: 16px; background: var(--footer-border);
+}
+
+/* Centro */
+.mf-footer__nav{
+  display:flex; gap:16px;
+}
+.mf-footer__nav a{
+  color: var(--footer-text);
+  text-decoration: none; font-weight: 600; font-size: 14px;
+  padding: 6px 8px; border-radius: 8px;
+  transition: color .2s ease, background .2s ease;
+}
+.mf-footer__nav a:hover{
+  color: var(--footer-strong);
+  background: color-mix(in oklab, var(--footer-bg) 60%, transparent);
+}
+
+/* Direita - social */
+.mf-footer__social{
+  display:flex; gap:10px; justify-self: end;
+}
+.mf-socialbtn{
+  width: 36px; height: 36px; display:grid; place-items:center;
+  border-radius: 10px; border: 1px solid var(--footer-border);
+  color: var(--footer-strong);
+  background: color-mix(in oklab, var(--footer-bg) 60%, transparent);
+  transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+  outline: none;
+}
+.mf-socialbtn:hover{
+  transform: translateY(-1px);
+  background: linear-gradient(180deg,
+    color-mix(in oklab, var(--primary) 25%, transparent),
+    color-mix(in oklab, var(--accent) 20%, transparent)
+  );
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.mf-socialbtn:focus-visible{
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 55%, transparent);
+}
+
+/* Responsivo */
+@media (max-width: 720px){
+  .mf-footer__inner{
+    grid-template-columns: 1fr; gap: 10px;
+  }
+  .mf-footer__social{ justify-self: start; }
+}

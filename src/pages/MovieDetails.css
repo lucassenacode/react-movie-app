@@ -55,10 +55,14 @@
 }
 
 .genres span {
-  background-color: #007BFF;
-  padding: 5px 10px;
+  padding: 5px 12px;
   border-radius: 15px;
   font-size: 0.9em;
+  font-weight: bold;
+
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  
+  color: #0b0b0f; 
 }
 
 .cast-list {
@@ -72,7 +76,7 @@
     background: transparent;
     border: none;
     color: white; /* Cor para o coração de contorno '🤍' */
-    font-size: 1.5rem; /* Aumenta o tamanho do emoji */
+    font-size: 1.5rem; 
     cursor: pointer;
     padding: 0;
     margin-left: 10px;
