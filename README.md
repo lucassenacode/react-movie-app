@@ -2,7 +2,7 @@
 
 Bem-vindo ao Film Royale, uma aplicação web moderna para descobrir, pesquisar e salvar seus filmes favoritos. Este projeto foi desenvolvido em React e consome a rica API do The Movie Database (TMDB).
 
-![Screenshot da tela inicial do Film Royale]() 
+![Screenshot da tela inicial do Film Royale](https://github.com/lucassenacode/react-movie-app/tree/main/img) 
 
 
 ## 📜 Sobre o Projeto
